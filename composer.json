@@ -3,6 +3,7 @@
   "description": "Implementation of test task",
   "minimum-stability": "dev",
   "homepage": "https://github.com/john-ask-later/test-task-calc-fn",
+  "license": "MIT",
   "authors": [
     {
       "name": "Evgeniy N.",
