@@ -98,3 +98,15 @@ function calc($arg)
 
     return $internal($arg, []);
 }
+
+function test()
+{
+    echo 'Some uncovered code';
+    $j = 10;
+    for ($i = 1; $i < 10; $i++) {
+        $j++;
+    }
+
+    return $j;
+}
+
