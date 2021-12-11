@@ -8,7 +8,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - name: Checkout
+      uses: actions/checkout@v2
+  
+    - name: Setup PHP with Xdebug
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '7.3'
 
     - name: Validate composer.json and composer.lock
       run: composer validate --strict
@@ -24,12 +30,7 @@ jobs:
 
     - name: Install dependencies
       run: composer install --prefer-dist --no-progress --no-suggest
-
-    - name: Setup PHP with Xdebug
-      uses: shivammathur/setup-php@v2
-      with:
-        php-version: '7.3'
         
     - name: Run test suite
-      run: vendor/bin/phpunit tests/
+      run: vendor/bin/phpunit tests/ --coverage-text
       
