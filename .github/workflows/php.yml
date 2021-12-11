@@ -1,4 +1,4 @@
-name: PHP Composer
+name: Build
 
 on: [push, pull_request]
 
@@ -8,7 +8,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - name: Checkout
+      uses: actions/checkout@v2
+  
+    - name: Setup PHP with Xdebug
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '7.3'
+        coverage: pcov
 
     - name: Validate composer.json and composer.lock
       run: composer validate --strict
@@ -24,12 +31,13 @@ jobs:
 
     - name: Install dependencies
       run: composer install --prefer-dist --no-progress --no-suggest
-
-    - name: Setup PHP with Xdebug
-      uses: shivammathur/setup-php@v2
-      with:
-        php-version: '7.3'
         
-    - name: Run test suite
-      run: vendor/bin/phpunit tests/
+    - name: Run tests with phpunit/phpunit
+      run: vendor/bin/phpunit --coverage-clover=coverage.xml
+    
+    - name: Send code coverage report to Codecov.io
+      uses: codecov/codecov-action@v1
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
+        fail_ci_if_error: true
       
