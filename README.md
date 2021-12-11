@@ -1,5 +1,5 @@
 # calc-fn
-
+[![Actions Status](https://github.com/john-ask-later/calc-fn/workflows/Build/badge.svg)](https://github.com/john-ask-later/calc-fn/actions)
 This package is result of working on test task
 
 ### test task
