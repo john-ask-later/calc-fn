@@ -1,0 +1,31 @@
+{
+  "name": "john-ask-later/calc-fn",
+  "description": "Implementation of test task",
+  "minimum-stability": "dev",
+  "homepage": "https://github.com/john-ask-later/test-task-calc-fn",
+  "authors": [
+    {
+      "name": "Evgeniy N.",
+      "email": "john.ask.later@gmail.com"
+    }
+  ],
+  "require": {
+    "php": "^7.3"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^9"
+  },
+  "autoload": {
+    "psr-4": {
+      "JohnAskLater\\CalcFn\\": "src"
+    },
+    "files": [
+      "src/calc_fn.php"
+    ]
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "JohnAskLater\\CalcFn\\Tests\\": "tests"
+    }
+  }
+}

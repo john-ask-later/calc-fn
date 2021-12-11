@@ -1,0 +1,8 @@
+/.idea
+/vendor
+/node_modules
+/tests/code-coverage
+.phpstorm.meta.php
+_ide_helper.php
+.env
+.phpunit.result.cache
