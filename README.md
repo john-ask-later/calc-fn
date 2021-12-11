@@ -1,5 +1,7 @@
 # calc-fn
 [![Actions Status](https://github.com/john-ask-later/calc-fn/workflows/Build/badge.svg)](https://github.com/john-ask-later/calc-fn/actions)
+[![codecov](https://codecov.io/gh/john-ask-later/calc-fn/branch/test-github-actions/graph/badge.svg)](https://codecov.io/gh/john-ask-later/calc-fn)
+
 This package is result of working on test task
 
 ### test task
