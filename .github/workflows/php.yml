@@ -21,6 +21,7 @@ jobs:
       uses: shivammathur/setup-php@v2
       with:
         php-version: '7.3'
+        extensions: curl
         coverage: pcov
 
     - name: Validate composer.json and composer.lock
@@ -57,7 +58,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
         
     - name: analyze code with StyleCI
-      uses: ghostwriter/styleci-action@1.2
+      uses: ghostwriter/styleci-action@1.2.0
       with:
         styleci_api_key: ${{ secrets.STYLECI_API_KEY }}
         
