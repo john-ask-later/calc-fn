@@ -39,7 +39,7 @@ jobs:
     - name: Check styles
       uses: docker://oskarstark/php-cs-fixer-ga
       with:
-        args: --config=.php_cs.php --allow-risky=yes -vvv --dry-run
+        args: --config=.php-cs-fixer.php --allow-risky=yes -vvv --dry-run
         
     - name: Run tests with phpunit/phpunit
       run: vendor/bin/phpunit --coverage-clover=coverage.xml
