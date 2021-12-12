@@ -20,7 +20,7 @@ use function is_callable;
  * @param callable|numeric $arg
  *
  * @return Closure|numeric
- * @throws LogicException
+ * @throws \ReflectionException
  */
 function calc($arg)
 {
