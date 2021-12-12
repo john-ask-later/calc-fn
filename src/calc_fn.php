@@ -8,7 +8,6 @@ use Closure;
 use LogicException;
 use ReflectionFunction;
 use ReflectionMethod;
-
 use function array_merge;
 use function call_user_func;
 use function call_user_func_array;
@@ -74,7 +73,7 @@ function calc($arg)
         // Validate that incoming parameters count is suitable for callback requirements
         if (($valNum - 1) % ($reqNum - 1) !== 0) {
             $multiple = $reqNum - 1;
-            $message  = "Callback expects {$reqNum} of params, count of args must be a multiple of: {$multiple}";
+            $message = "Callback expects {$reqNum} of params, count of args must be a multiple of: {$multiple}";
             throw new LogicException($message, 0);
         }
 
