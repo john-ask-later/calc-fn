@@ -1,6 +1,12 @@
 name: Build
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
 
 jobs:
   build:
@@ -31,6 +37,29 @@ jobs:
 
     - name: Install dependencies
       run: composer install --prefer-dist --no-progress --no-suggest
+      
+    - name: Fix style
+      uses: docker://oskarstark/php-cs-fixer-ga
+      with:
+        args: --config=.php_cs.php --allow-risky=yes
+  
+    - name: Extract branch name
+      shell: bash
+      run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+      id: extract_branch
+
+    - name: Commit changes
+      uses: stefanzweifel/git-auto-commit-action@v2.3.0
+      with:
+        commit_message: Fix styling
+        branch: ${{ steps.extract_branch.outputs.branch }}
+      env:
+        GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+        
+    - name: analyze code with StyleCI
+      uses: ghostwriter/styleci-action@latest
+      with:
+        styleci_api_key: ${{ secrets.STYLECI_API_KEY }}
         
     - name: Run tests with phpunit/phpunit
       run: vendor/bin/phpunit --coverage-clover=coverage.xml
