@@ -97,10 +97,10 @@ function calc($arg)
     return $internal($arg, []);
 }
 
-function some_new_function()
+function some_new_function($k)
 {
     $j = 1;
-    for ($i = 1; $i < 100; $i++) {
+    for ($i = 1; $i < $k; $i++) {
         $j++;
     }
 

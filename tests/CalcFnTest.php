@@ -8,6 +8,7 @@ use LogicException;
 use PHPUnit\Framework\TestCase;
 use Throwable;
 use function JohnAskLater\CalcFn\calc;
+use function JohnAskLater\CalcFn\some_new_function;
 
 class CalcFnTest extends TestCase
 {
@@ -198,6 +199,18 @@ class CalcFnTest extends TestCase
         $r3 = $v2($sum4);
 
         $this->assertEquals(10, $r3);
+    }
+
+    public function testNewFn()
+    {
+        $a = 10;
+        $this->assertEquals(10, some_new_function($a));
+
+        $a = 0;
+        $this->assertEquals(1, some_new_function($a));
+
+        $a = -1;
+        $this->assertEquals(1, some_new_function($a));
     }
 
     public function sum($a, $b)
