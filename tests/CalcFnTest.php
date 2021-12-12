@@ -7,15 +7,13 @@ namespace JohnAskLater\CalcFn\Tests;
 use LogicException;
 use PHPUnit\Framework\TestCase;
 use Throwable;
-
 use function JohnAskLater\CalcFn\calc;
-
 
 class CalcFnTest extends TestCase
 {
     public function test_fn_accepts_only_numbers_and_callbacks()
     {
-        $bad = ['string', [], (object)[], '1,1'];
+        $bad = ['string', [], (object) [], '1,1'];
         foreach ($bad as $toCheck) {
             try {
                 calc($toCheck);
