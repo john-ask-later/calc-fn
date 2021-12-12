@@ -57,7 +57,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
         
     - name: analyze code with StyleCI
-      uses: ghostwriter/styleci-action@latest
+      uses: ghostwriter/styleci-action@1.2
       with:
         styleci_api_key: ${{ secrets.STYLECI_API_KEY }}
         
